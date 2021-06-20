@@ -29,4 +29,6 @@ text areaに文字列をペーストし、"LOAD XML" を押して実行する。
 
 
 ### Reference
+- https://github.com/ondras/wwwsqldesigner
+- https://hub.docker.com/r/denlabo/sqldesigner/
 - https://github.com/denlabo/dockerfile-sqldesigner
