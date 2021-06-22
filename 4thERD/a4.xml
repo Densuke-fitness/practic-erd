@@ -41,6 +41,9 @@
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="reception_date" null="1" autoincrement="0">
+<datatype>TIMESTAMP</datatype>
+<default>NULL</default></row>
 <row name="id_Reception" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Reception" row="id" />
@@ -57,27 +60,25 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Doctors" row="id" />
 </row>
-<row name="reception_date" null="1" autoincrement="0">
-<datatype>TIMESTAMP</datatype>
-<default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="972" y="900.6666717529297" name="Reception">
+<table x="1200" y="654.6666717529297" name="Reception">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
+<row name="date" null="1" autoincrement="0">
+<datatype>DATETIME</datatype>
+<default>'NOT NULL'</default></row>
 <row name="id_Patients" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="Patients" row="id" />
 </row>
-<row name="date" null="1" autoincrement="0">
-<datatype>DATETIME</datatype>
-<default>'NOT NULL'</default></row>
-<row name="terminal_number" null="1" autoincrement="0">
-<datatype>VARCHAR</datatype>
-<default>NULL</default></row>
+<row name="id_Terminals" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Terminals" row="id" />
+</row>
 <row name="account_number" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -85,7 +86,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="973" y="731.7777709960938" name="Patients">
+<table x="1202" y="428.77777099609375" name="Patients">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -102,9 +103,12 @@
 <part>id</part>
 </key>
 </table>
-<table x="1506" y="737.7777709960938" name="MedicalClinics">
+<table x="1506" y="738.7777709960938" name="MedicalClinics">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="name" null="1" autoincrement="0">
+<datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -121,13 +125,56 @@
 <part>id</part>
 </key>
 </table>
-<table x="1552" y="974.7777709960938" name="Doctors">
+<table x="1501" y="978.7777709960938" name="Doctors">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
 <row name="name" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="921.1111106872559" y="695.2222290039062" name="Terminals">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="number" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1801.5555725097656" y="979.7778015136719" name="MedicalDoctors">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_MedicalClinics" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="MedicalClinics" row="id" />
+</row>
+<row name="id_Doctors" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="Doctors" row="id" />
+</row>
+<key type="PRIMARY" name="">
+<part>id</part>
+</key>
+</table>
+<table x="1803.5555725097656" y="795.7778015136719" name="PossibleContentsOfConsultationByDepartment">
+<row name="id" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="id_MedicalClinics" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="MedicalClinics" row="id" />
+</row>
+<row name="id_ContentOfConsultation" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="ContentOfConsultation" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
