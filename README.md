@@ -6,7 +6,7 @@
 ### Launch
 
 sqldesignerのディレクトリにて
-`docker-comopse up -d`
+`docker-compose up -d`
 を実行する。
 
 その後localhost:3000にてsqldiginerが立ち上がっていることがわかる。
